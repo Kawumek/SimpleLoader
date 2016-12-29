@@ -18,7 +18,7 @@ namespace SimpleLoader_Reborn
         private string filedef;
         private bool link_contains = false;
         private bool nullByClick = true;
-
+                                                                    
         private bool ConnectionAvailable(string strServer)
         {
             try
@@ -28,23 +28,20 @@ namespace SimpleLoader_Reborn
                 HttpWebResponse rspFP = (HttpWebResponse)reqFP.GetResponse();
                 if (HttpStatusCode.OK == rspFP.StatusCode)
                 {
-                    // HTTP = 200 - Интернет безусловно есть! 
                     rspFP.Close();
                     return true;
                 }
                 else
                 {
-                    // сервер вернул отрицательный ответ, возможно что инета нет
                     rspFP.Close();
                     return false;
                 }
             }
             catch (WebException)
             {
-                // Ошибка, значит интернета у нас нет. Плачем :'(
                 return false;
             }
-        }           //
+        }       
 
         public mainform()
         {
@@ -55,7 +52,7 @@ namespace SimpleLoader_Reborn
                 this.LinkBox.TextAlign = HorizontalAlignment.Left;
             }
             this.MainButton.Focus();
-        }                                            //
+        }                                        
 
         private void MainButton_Click(object sender, EventArgs e)
         {
@@ -89,7 +86,7 @@ namespace SimpleLoader_Reborn
                     }
                 }
             }
-        }    //
+        }
 
         private void Download_DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
         {
@@ -117,11 +114,13 @@ namespace SimpleLoader_Reborn
                 this.ProgressBar.Visible = false;
                 nullByClick = true;
             }
-        }   //
+        }
+
         private void closeform(object sender, EventArgs e)
         {
             Application.Exit();
-        }           //
+        }           
+
         private void PathButton_Click(object sender, EventArgs e)
         {
             if (link_contains)
@@ -164,7 +163,7 @@ namespace SimpleLoader_Reborn
             }
             this.PathBox.Text = pathtofile;
             this.PathBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-        }    //
+        }    
 
         private void LangBox_Click(object sender, EventArgs e)
         {
@@ -200,7 +199,7 @@ namespace SimpleLoader_Reborn
                 this.MainButton.Text = "Скачать";
                 this.CloseChck.Text = "Закрыть после окончания";
             }
-        }       //
+        }       
 
         private void LinkBox_Click(object sender, EventArgs e)
         {
@@ -209,7 +208,7 @@ namespace SimpleLoader_Reborn
                 this.LinkBox.Text = null;
                 this.LinkBox.TextAlign = HorizontalAlignment.Left;
             }
-        }       //
+        }       
 
         private void LinkBox_TextChanged(object sender, EventArgs e)
         {
@@ -225,6 +224,6 @@ namespace SimpleLoader_Reborn
                     this.PathBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
                 }
             }
-        } //
+        } 
     }
 }
